@@ -1,0 +1,390 @@
+================================================================================
+🍽️ SmartCanteen - Complete Feature Breakdown
+================================================================================
+
+PAGE 1: 🏠 DASHBOARD
+================================================================================
+Hero Section:
+  Title: "SmartCanteen"
+  Tagline: "Turn Data Into Smarter Meals."
+  Description: "An interactive PSDA-based analytics system..."
+
+Scenario Controls:
+  🍱 Food Item: Dropdown selector (8 items)
+  👥 Expected Students: Slider (100-1200, step 50)
+  🌡️  Temperature (°C): Slider (18-42, step 1)
+  📚 Exam Week: Checkbox
+  🎉 Holiday: Checkbox
+  🛡️  Safety Buffer %: Slider (0-20, step 1)
+
+KPI Cards (4 columns):
+  📈 Predicted Demand: [NUMBER] units/day
+  🍽️ Recommended Prep: [NUMBER] units
+  👥 Expected Students: [NUMBER] students
+  ♻️ Avg Waste: [PERCENTAGE]% (with status emoji)
+
+Smart Recommendation Box:
+  "Prepare approximately [NUMBER] units of [ITEM]."
+  Detailed reasoning with multiple factors
+
+Charts:
+  1. Demand Trend Chart (90-day historical + predicted line)
+  2. Prepared vs Sold vs Waste (Stacked bar chart, last 30 days)
+
+Dynamic Insight:
+  "Based on [conditions], demand is predicted to be [direction]..."
+
+================================================================================
+PAGE 2: 📊 STATISTICS
+================================================================================
+Food Item Selector: Dropdown
+
+Statistics Cards (4 columns):
+  Mean: [VALUE] units/day
+  Median: [VALUE] units/day
+  Std Dev: [VALUE] dispersion
+  Range: [VALUE] max - min
+
+Detailed Statistics Table:
+  Mean, Median, Mode, Min, Max, Range, Variance, Std Dev, Q1, Q3, IQR
+  (11 statistics total)
+
+Visualizations:
+  1. Demand Distribution Histogram (30 bins, colored)
+  2. Box Plot (quartiles and outliers)
+  3. Daily Demand Trend (line chart)
+
+Insight Box:
+  "Average [ITEM] demand is [MEAN] units/day. The standard deviation of 
+   [STDDEV] indicates [variation description]..."
+
+================================================================================
+PAGE 3: 🎲 PROBABILITY
+================================================================================
+Controls:
+  🍱 Food Item: Dropdown
+  📊 Demand Threshold: Slider (min-max of data)
+
+Probability KPI Cards (4 columns):
+  P(X > threshold): [PERCENTAGE]%
+  Days Above: [NUMBER] observations
+  Total Obs: [NUMBER] records
+  Mean Demand: [NUMBER] units/day
+
+Visualizations:
+  1. Bar Chart: "Below/Equal to Threshold" vs "Above Threshold"
+  2. Probability Gauge: Visual indicator (0-100%)
+
+Insight Box:
+  "Historically, demand exceeded [THRESHOLD] units on [PERCENTAGE]% 
+   of observed days..."
+
+Probability Statistics Table:
+  Percentile | Threshold | P(X>threshold) | Days Above
+  25th       | [VALUE]   | [PERCENTAGE]%  | [DAYS]
+  50th       | [VALUE]   | [PERCENTAGE]%  | [DAYS]
+  ... etc
+
+================================================================================
+PAGE 4: 🔗 CORRELATION
+================================================================================
+Controls:
+  🍱 Food Item: Dropdown
+  Variable: Selectbox (Student Attendance / Temperature / Price)
+
+Correlation KPI Cards (4 columns):
+  Correlation (r): [VALUE] ±1.000 (color coded)
+  R² Score: [VALUE] (0.000-1.000)
+  Strength: [TEXT] (Strong/Moderate/Weak)
+  P-value: [VALUE] (significance)
+
+Visualizations:
+  1. Scatter Plot with Trendline
+     - Each point is an observation
+     - Best-fit line in contrasting color
+  2. Correlation Heatmap (5x5 matrix)
+     - Students vs Demand
+     - Temperature vs Demand
+     - Price vs Demand
+     - Waste % vs others
+     - Color gradient from red (-) to blue (+)
+
+Insight Box:
+  "[VARIABLE] vs [ITEM] Demand"
+  "Correlation Coefficient: [R]"
+  "[R²*100]% of variation explained"
+  "Important: Correlation indicates association, not causation."
+
+Important Disclaimer Box
+
+================================================================================
+PAGE 5: 🔮 PREDICTION
+================================================================================
+Input Section:
+  🍱 Food Item: Dropdown
+  👥 Expected Students: Slider (100-1200)
+  🌡️  Temperature (°C): Slider (18-42)
+  📚 Exam Week: Checkbox
+  🎉 Holiday: Checkbox
+  🛡️  Safety Buffer %: Slider (0-20)
+
+Results Section (3 KPI cards):
+  Predicted Demand: [NUMBER] units/day (teal gradient)
+  Recommended Prep: [NUMBER] units (with buffer %) (darker teal)
+  Expected Waste %: [PERCENTAGE]% (orange gradient)
+
+Model Details (2 columns):
+
+Left - Coefficients Table:
+  Variable           | Coefficient
+  Intercept          | [VALUE]
+  Students_Present   | [VALUE]
+  Temperature_C      | [VALUE]
+  Exam_Week          | [VALUE]
+  Holiday            | [VALUE]
+
+  Model Equation:
+  Demand = β₀ + β₁(Students) + β₂(Temp) + β₃(Exam) + β₄(Holiday)
+
+Right - Performance Metrics Table:
+  Metric  | Value
+  MAE     | [VALUE] units
+  RMSE    | [VALUE] units
+  R²      | [VALUE] (0-1)
+  MAPE    | [VALUE]%
+
+Validation Charts:
+  1. Actual vs Predicted Scatter Plot
+     - Perfect prediction reference line
+     - Trendline for actual relationship
+  2. Residual Distribution Histogram
+     - How far predictions are off
+
+Performance Insight Box:
+  "Model Performance Metrics:"
+  "R² Score: [VALUE] - explains [PERCENTAGE]% of variation"
+  "MAE: [VALUE] units - average prediction error"
+  ...
+
+================================================================================
+PAGE 6: ♻️ WASTE ANALYTICS
+================================================================================
+Overall Summary (4 KPI cards):
+  Total Prepared: [NUMBER] units (all time)
+  Total Sold: [NUMBER] units
+  Total Waste: [NUMBER] units
+  Waste %: [PERCENTAGE]%
+
+Item Selection: Dropdown
+
+Per-Item Metrics (4 columns):
+  Avg Daily Waste: [NUMBER] units
+  Waste %: [PERCENTAGE]%
+  Total Waste: [NUMBER] units
+  Financial Loss: ₹[NUMBER]
+
+Visualizations:
+  1. Daily Waste Trend with 7-day Moving Average
+  2. Waste % by Day of Week (bar chart)
+
+Waste Comparison Table (all items):
+  Food Item | Avg Waste % | Total Waste | Avg Daily | Financial Loss
+
+Recommendations Section:
+  Multiple dynamic recommendation cards with:
+  - ⚠️  High waste warnings
+  - 📉 Weekend-specific insights
+  - 👥 Attendance-based recommendations
+  - 📊 Consistency analysis
+  - ✅ Success cases
+
+Waste Status Indicator:
+  🟢 LOW WASTE / 🟡 MODERATE WASTE / 🔴 HIGH WASTE
+
+================================================================================
+PAGE 7: 🍱 FOOD COMPARISON
+================================================================================
+Summary Table (all items):
+  Food Item | Avg Demand | Median | Std Dev | Avg Waste % | Price | Records
+
+Comparative Charts (4 visualizations):
+  1. 🔥 Highest Demand (Bar chart, sorted)
+  2. ♻️ Highest Waste % (Bar chart, sorted)
+  3. 📊 Demand Variability (Std Dev, bar chart)
+  4. 💰 Price vs Demand (Scatter plot)
+
+Each chart is professionally styled with:
+  - Clear titles
+  - Labeled axes
+  - Color-coded bars/points
+  - Interactive hover info
+
+================================================================================
+PAGE 8: 📊 DATA EXPLORER
+================================================================================
+Filter Section (3 columns):
+  Food Items: Multi-select (all items)
+  Date Range: Date input (min-max picker)
+  Columns: Multi-select (14 columns available)
+
+Display Statistics (4 columns):
+  Total Records: [NUMBER]
+  Unique Dates: [NUMBER]
+  Food Items: [NUMBER]
+  Date Range: [NUMBER] days
+
+Data Table:
+  - Scrollable
+  - Sortable by column
+  - Shows selected columns only
+  - Displays filtered records
+
+Download Section:
+  📥 Download as CSV button
+  - Includes timestamp in filename
+  - Exports filtered data only
+
+================================================================================
+PAGE 9: ℹ️ ABOUT
+================================================================================
+Two-column layout:
+
+Left Column:
+  📋 Project Information
+    Project Name: SmartCanteen
+    Subject: Probability, Statistics and Data Analysis
+    Purpose: Demand prediction & food waste analytics
+    Type: Academic Working Model
+
+Right Column:
+  💻 Technology Stack
+    Language: Python
+    Framework: Streamlit
+    Data: Pandas, NumPy
+    Visualization: Plotly
+    ML: Scikit-learn
+
+PSDA Concepts Section:
+  Descriptive Statistics:
+    ✓ Mean, Median, Mode
+    ✓ Variance and Standard Deviation
+    ✓ Quartiles and IQR
+    ... (full list)
+
+  Probability:
+    ✓ Empirical Probability
+    ✓ Probability Distributions
+    ... (full list)
+
+  [Continues for all concepts]
+
+Dataset Information:
+  Type: Simulated Academic Dataset
+  Records: 2,920
+  Duration: 365 days
+  Items: 8 varieties
+  [Full feature list]
+
+Important Disclaimers:
+  ⚠️  Dataset is simulated for academic purposes
+  ⚠️  Not based on real canteen data
+  ⚠️  Predictions should be used with expertise
+
+Data Quality Summary:
+  📊 Total Records: 2,920
+  🍱 Food Items: 8
+  📅 Date Range: [START] to [END]
+  ✓ Data Completeness: [PERCENTAGE]%
+
+================================================================================
+FOOTER (All Pages)
+================================================================================
+---
+🍽️ SmartCanteen | PSDA Academic Project | Simulated Dataset
+Turn Data Into Smarter Meals
+
+================================================================================
+SIDEBAR (All Pages)
+================================================================================
+🍽️ SMARTCANTEEN
+"Turn Data Into Smarter Meals."
+
+---
+
+Navigation (radio buttons):
+  🏠 Dashboard
+  📊 Statistics
+  🎲 Probability
+  🔗 Correlation
+  🔮 Prediction
+  ♻️ Waste Analytics
+  🍱 Food Comparison
+  📊 Data Explorer
+  ℹ️ About
+
+---
+
+Project Info:
+  PSDA Working Model
+  Simulated Academic Dataset
+  📅 Records: 2,920
+  🍱 Items: 8
+
+================================================================================
+STYLING THROUGHOUT
+================================================================================
+Color Scheme:
+  Primary Teal: #0F7C7E
+  Primary Green: #1B5E5E
+  Accent Orange: #E8914C
+  Accent Gold: #D4A574
+  Secondary Sage: #A8B8A8
+  Background Cream: #F5F1ED
+  Text Dark: #2C3E50
+
+Design Elements:
+  ✓ Gradient backgrounds
+  ✓ Rounded corners (12-15px border-radius)
+  ✓ Subtle shadows
+  ✓ Professional typography
+  ✓ Consistent spacing
+  ✓ Hover effects on cards
+  ✓ Custom metric styling
+  ✓ Professional borders
+
+Layout:
+  ✓ Responsive columns
+  ✓ Proper whitespace
+  ✓ Clear visual hierarchy
+  ✓ Aligned elements
+  ✓ Professional fonts
+
+================================================================================
+INTERACTIVE FEATURES
+================================================================================
+✓ Real-time chart updates
+✓ Slider adjustments (instant feedback)
+✓ Dropdown selections
+✓ Checkbox toggles
+✓ Date pickers
+✓ Multi-select lists
+✓ Hover tooltips on charts
+✓ Zoom and pan on charts
+✓ CSV download with timestamp
+✓ Dynamic table sorting
+✓ Filterable data
+✓ Responsive tables
+
+================================================================================
+PERFORMANCE CHARACTERISTICS
+================================================================================
+✓ Data loaded once and cached
+✓ Models trained once and cached
+✓ Fast page navigation (<1 second)
+✓ Real-time slider updates (no lag)
+✓ Smooth chart rendering
+✓ <100ms prediction time
+✓ Minimal memory usage
+✓ Responsive on all screen sizes
+
+================================================================================
